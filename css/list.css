@@ -1,0 +1,173 @@
+@charset "utf-8";
+/**
+ * @author  @wada811
+ * @version 2012/11/18
+ * @license Apache License 2.0
+ */
+/**
+ * list-marker base class
+ */
+.marker {
+    display: block;
+    padding-left: 1em;
+}
+.marker::before {
+    content: attr(data-marker);
+    display: block;
+    float: left;
+    margin-left: -1em;
+    width: 1em;
+    text-align: center;
+}
+/**
+ * list-marker marker class
+ */
+.marker.type_disc::before {
+    content: "・";
+}
+.marker.type_filled_circle::before {
+    content: "●";
+}
+.marker.type_outline_circle::before {
+    content: "○";
+}
+.marker.type_filled_square::before {
+    content: "■";
+}
+.marker.type_outline_square::before {
+    content: "□";
+}
+.marker.type_filled_diamond::before {
+    content: "◆";
+}
+.marker.type_outline_diamond::before {
+    content: "◇";
+}
+.marker.type_filled_star::before {
+    content: "★";
+}
+.marker.type_outline_star::before {
+    content: "☆";
+}
+.marker.type_filled_triangle::before {
+    content: "▲";
+}
+.marker.type_outline_triangle::before {
+    content: "△";
+}
+.marker.type_filled_inverted_triangle::before {
+    content: "▼";
+}
+.marker.type_outline_inverted_triangle::before {
+    content: "▽";
+}
+/**
+ * lsit-marker quote class
+ */
+.marker.type_quote::before {
+    content: open-quote;
+}
+.marker.type_quote::after {
+    content: close-quote;
+}
+/**
+ * list-counter base class
+ */
+.counter.init {
+    counter-reset: count;
+}
+.counters.init {
+    counter-reset: count;
+}
+.count {
+    display: block;
+    padding-left: 1em;
+}
+.count::before {
+    counter-increment: count;
+    display: block;
+    float: left;
+    margin-left: -1em;
+    text-align: center;
+}
+.counter .count::before {
+    width: 1em;
+}
+/**
+ * list-counter counter class
+ */
+.counter.type_decimal .count::before {
+    content: counter(count, decimal);
+}
+.counter.type_decimal_leading_zero .count::before {
+    content: counter(count, decimal-leading-zero);
+}
+.counter.type_lower_roman .count::before {
+    content: counter(count, lower-roman);
+}
+.counter.type_upper_roman .count::before {
+    content: counter(count, upper-roman);
+}
+.counter.type_lower_greek .count::before {
+    content: counter(count, lower-greek);
+}
+.counter.type_upper_greek .count::before {
+    content: counter(count, upper-greek);
+}
+.counter.type_lower_latin .count::before {
+    content: counter(count, lower-latin);
+}
+.counter.type_upper_latin .count::before {
+    content: counter(count, upper-latin);
+}
+.counter.type_lower_alpha .count::before {
+    content: counter(count, lower-alpha);
+}
+.counter.type_upper_alpha .count::before {
+    content: counter(count, upper-alpha);
+}
+.counter.type_armenian .count::before {
+    content: counter(count, armenian);
+}
+.counter.type_georgian .count::before {
+    content: counter(count, georgian);
+}
+/**
+ * list-counters counter class
+ */
+.counters.type_decimal .count::before {
+    content: counters(count, ".", decimal);
+}
+.counters.type_decimal_leading_zero .count::before {
+    content: counters(count, ".", decimal-leading-zero);
+}
+.counters.type_lower_roman .count::before {
+    content: counters(count, ".", lower-roman);
+}
+.counters.type_upper_roman .count::before {
+    content: counters(count, ".", upper-roman);
+}
+.counters.type_lower_greek .count::before {
+    content: counters(count, ".", lower-greek);
+}
+.counters.type_upper_greek .count::before {
+    content: counters(count, ".", upper-greek);
+}
+.counters.type_lower_latin .count::before {
+    content: counters(count, ".", lower-latin);
+}
+.counters.type_upper_latin .count::before {
+    content: counters(count, ".", upper-latin);
+}
+.counters.type_lower_alpha .count::before {
+    content: counters(count, ".", lower-alpha);
+}
+.counters.type_upper_alpha .count::before {
+    content: counters(count, ".", upper-alpha);
+}
+.counters.type_armenian .count::before {
+    content: counters(count, ".", armenian);
+}
+.counters.type_georgian .count::before {
+    content: counters(count, ".", georgian);
+}

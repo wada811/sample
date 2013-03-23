@@ -1,0 +1,65 @@
+.sp {
+    width: 320px;
+    margin: 0 auto;
+}
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.h50 {
+    height: 50px;
+}
+.h100 {
+    height: 100px;
+}
+.fs24 {
+    font-size: 24px;
+    line-height: 26px;
+}
+.fs36 {
+    font-size: 36px;
+    line-height: 40px;
+}
+.fs64 {
+    font-size: 64px;
+    line-height: 70px;
+}
+.black {
+    background-color: #333;
+    color: #ccc;
+}
+.white {
+    background-color: #ccc;
+    color: #333;
+}
+.red {
+    background-color: red;
+    color: #333;
+}
+.orange {
+    background-color: orange;
+    color: #333;
+}
+.yellow {
+    background-color: yellow;
+    color: #333;
+}
+.green {
+    background-color: green;
+    color: #ccc;
+}
+.blue {
+    background-color: blue;
+    color: #ccc;
+}
+.indigo {
+    background-color: indigo;
+    color: #ccc;
+}
+.purple {
+    background-color: purple;
+    color: #ccc;
+}

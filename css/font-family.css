@@ -1,0 +1,17 @@
+body {
+    font-family: 'ヒラギノ角ゴ ProN W3', 'メイリオ', 'ＭＳ Ｐゴシック', Sans-Serif;
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: normal;
+}
+
+pre,
+code,
+var,
+samp,
+kbd,
+.mono {
+    font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.1;
+}

@@ -1,0 +1,11 @@
+@charset "utf-8";
+/**
+ * @author  @wada811
+ * @version 2012/11/18
+ * @license Apache License 2.0
+ */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}

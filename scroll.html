@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>jQuery animated scroll sample page</title>
+	<meta name="author" content="@wada811">
+	<meta name="description" content="@wada811's sample page">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<section id="top" class="row h100 center">
+		<input type="button" class="btn btn-primary" value="Slow Linear Scroll" onclick="animatedScroll('#invite', 'slow', 'linear', onScrolled)" />
+		<input type="button" class="btn btn-info" value="Fast Linear Scroll" onclick="animatedScroll('#invite', 'fast', 'linear', onScrolled)" />
+		<input type="button" class="btn btn-success" value="3000ms Linear Scroll" onclick="animatedScroll('#invite', 3000, 'linear', onScrolled)" />
+		<input type="button" class="btn btn-warning" value="Slow Swing Scroll" onclick="animatedScroll('#invite', 'slow', 'swing', onScrolled)" />
+		<input type="button" class="btn btn-danger" value="Fast Swing Scroll" onclick="animatedScroll('#invite', 'fast', 'swing', onScrolled)" />
+		<input type="button" class="btn btn-inverse" value="3000ms Swing Scroll" onclick="animatedScroll('#invite', 3000, 'swing', onScrolled)" />
+		<script><!--
+			var onScrolled = function onScrolled(){
+				if(!confirm('お分かりいただけただろうか？')){
+					animatedScroll('body', 'fast', 'swing', null);
+				}
+			};
+			function animatedScroll(selector, speed, animation, complete) {
+				$($.browser.msie || $.browser.mozilla || $.browser.opera ? 'html' : 'body').animate({scrollTop: $(selector).offset().top}, speed, animation, complete);
+			}
+		--></script>
+	</section>
+	<section class="row h100 red">.</section>
+	<section class="row h100 orange">.</section>
+	<section class="row h100 yellow">.</section>
+	<section class="row h100 green">.</section>
+	<section class="row h100 blue">.</section>
+	<section class="row h100 indigo">.</section>
+	<section class="row h100 purple">.</section>
+
+	<section class="row h100 red">.</section>
+	<section class="row h100 orange">.</section>
+	<section class="row h100 yellow">.</section>
+	<section class="row h100 green">.</section>
+	<section class="row h100 blue">.</section>
+	<section class="row h100 indigo">.</section>
+	<section class="row h100 purple">.</section>
+
+	<section class="row h100 red">.</section>
+	<section class="row h100 orange">.</section>
+	<section class="row h100 yellow">.</section>
+	<section class="row h100 green">.</section>
+	<section class="row h100 blue">.</section>
+	<section class="row h100 indigo">.</section>
+	<section class="row h100 purple">.</section>
+
+	<section id="invite" class="row h100 center">
+		<p class="fs36">
+			このサンプルページはオンラインストレージサービスの<a href="https://www.dropbox.com/" target="_blank">Dropbox</a>の公開フォルダを利用しています。<br>
+			<a href="http://db.tt/4lgQ62S">紹介リンク</a>から登録していただくとお互いに500MBの追加容量を手に入れることができます。<br>
+			この機会にDropboxを始めてみませんか？<br>
+			記事に戻る→<a href="http://wada811.blogspot.com/2012/08/jquery-scroll-in-chrome-firefox-safari-ie.html">クロスブラウザ対応！jQueryのアニメーションスクロール | DevAchieve</a>
+		</p>
+	</section>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.0.js"><\/script>')</script>
+	<script src="js/script.js"></script>
+  </body>
+</html>
