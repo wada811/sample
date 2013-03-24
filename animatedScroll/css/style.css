@@ -1,0 +1,46 @@
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+.h100 {
+    height: 100px;
+}
+.fs24 {
+    font-size: 24px;
+}
+.black {
+    background-color: #333;
+    color: #ccc;
+}
+.white {
+    background-color: #ccc;
+    color: #333;
+}
+.red {
+    background-color: red;
+    color: #333;
+}
+.orange {
+    background-color: orange;
+    color: #333;
+}
+.yellow {
+    background-color: yellow;
+    color: #333;
+}
+.green {
+    background-color: green;
+    color: #ccc;
+}
+.blue {
+    background-color: blue;
+    color: #ccc;
+}
+.indigo {
+    background-color: indigo;
+    color: #ccc;
+}
+.purple {
+    background-color: purple;
+    color: #ccc;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:og="http://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>jQuery animated scroll sample page</title>
+<meta name="author" content="@wada811">
+<meta name="description" content="jQuery1.9からjQuery.browserが使えなくなったのでjQuery1.9以上対応版animatedScroll関数を作ってみた。">
+<link rel="canonical" href="http://wada811.github.com/sample/">
+<link rel="icon" sizes="16x16 32x32 48x48 128x128 256x256" href="http://wada811.github.com/sample/assets/img/favicon.ico">
+<!-- ogp -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="jQuery animated scroll sample page">
+<meta property="og:url" content="http://wada811.github.com/sample/">
+<meta property="og:image" content="http://wada811.github.com/sample/assets/img/marunichigaiya_512.png">
+<meta property="og:title" content="jQuery animated scroll sample page">
+<meta property="og:description" content="jQuery1.9からjQuery.browserが使えなくなったのでjQuery1.9以上対応版animatedScroll関数を作ってみた。">
+<!-- /ogp -->
+<!-- twitter-cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="http://wada811.github.com/sample/">
+<meta name="twitter:title" content="jQuery animated scroll sample page">
+<meta name="twitter:description" content="jQuery1.9からjQuery.browserが使えなくなったのでjQuery1.9以上対応版animatedScroll関数を作ってみた。">
+<meta name="twitter:image" content="http://wada811.github.com/sample/assets/img/marunichigaiya_512.png">
+<meta name="twitter:site" content="@wada811">
+<meta name="twitter:creator" content="@wada811">
+<!-- /twitter-cards -->
+<!-- google+ -->
+<link rel="author" href="https://plus.google.com/118433275144367096417">
+<!-- /google+ -->
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,minimum-scale=0.25,maximum-scale=1.6">
+<!-- css -->
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/css/html5reset-1.6.1.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/assets/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap-responsive.min.css">
+<!-- /css -->
+<!-- js -->
+<!--[if lt IE 9]>
+<script src="http://wada811.github.com/sample/libs/js/html5shiv.js"></script>
+<script src="http://wada811.github.com/sample/libs/js/IE9js/IE9.js"></script>
+<![endif]-->
+<!-- /js -->
+</head>
+<body>
+    <div id="top" class="row h100 center">
+        <input type="button" class="btn btn-primary" value="Slow Linear Scroll" onclick="animatedScroll('#invite', 'slow', 'linear', onScrolled)" />
+        <input type="button" class="btn btn-info" value="Fast Linear Scroll" onclick="animatedScroll('#invite', 'fast', 'linear', onScrolled)" />
+        <input type="button" class="btn btn-success" value="3000ms Linear Scroll" onclick="animatedScroll('#invite', 3000, 'linear', onScrolled)" />
+        <input type="button" class="btn btn-warning" value="Slow Swing Scroll" onclick="animatedScroll('#invite', 'slow', 'swing', onScrolled)" />
+        <input type="button" class="btn btn-danger" value="Fast Swing Scroll" onclick="animatedScroll('#invite', 'fast', 'swing', onScrolled)" />
+        <input type="button" class="btn btn-inverse" value="3000ms Swing Scroll" onclick="animatedScroll('#invite', 3000, 'swing', onScrolled)" />
+        <script><!--
+            var onScrolled = function onScrolled(){
+                if(!confirm('お分かりいただけただろうか？')){
+                    animatedScroll('#top', 'fast', 'swing', null);
+                }
+            };
+            function animatedScroll(selector, speed, animation, complete){
+                var isScrolled = false;
+                var setScrolled = function(){
+                    isScrolled = true;
+                }
+                $('html').animate({scrollTop: $(selector).offset().top}, speed, animation, setScrolled);
+                if(isScrolled){
+                    complete();
+                }else{
+                    $('body').animate({scrollTop: $(selector).offset().top}, speed, animation, complete);
+                }
+            }
+        --></script>
+    </div>
+    <div class="row h100 red">.</div>
+    <div class="row h100 orange">.</div>
+    <div class="row h100 yellow">.</div>
+    <div class="row h100 green">.</div>
+    <div class="row h100 blue">.</div>
+    <div class="row h100 indigo">.</div>
+    <div class="row h100 purple">.</div>
+
+    <div class="row h100 red">.</div>
+    <div class="row h100 orange">.</div>
+    <div class="row h100 yellow">.</div>
+    <div class="row h100 green">.</div>
+    <div class="row h100 blue">.</div>
+    <div class="row h100 indigo">.</div>
+    <div class="row h100 purple">.</div>
+
+    <div class="row h100 red">.</div>
+    <div class="row h100 orange">.</div>
+    <div class="row h100 yellow">.</div>
+    <div class="row h100 green">.</div>
+    <div class="row h100 blue">.</div>
+    <div class="row h100 indigo">.</div>
+    <div class="row h100 purple">.</div>
+
+    <div id="invite" class="row h100 center">
+        <p class="fs24">
+            このサンプルページはオンラインストレージサービスの<a href="https://www.dropbox.com/" target="_blank">Dropbox</a>の公開フォルダを利用しています。<br>
+            <a href="http://db.tt/4lgQ62S">紹介リンク</a>から登録していただくとお互いに500MBの追加容量を手に入れることができます。<br>
+            この機会にDropboxを始めてみませんか？<br>
+            記事に戻る→<a href="http://wada811.blogspot.com/2012/08/jquery-scroll-in-chrome-firefox-safari-ie.html">クロスブラウザ対応！jQueryのアニメーションスクロール | DevAchieve</a>
+        </p>
+    </div>
+    <!-- js -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://wada811.github.com/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
+    <script src="http://wada811.github.com/sample/assets/js/script.js"></script>
+    <!-- /js -->
+  </body>
+</html>
