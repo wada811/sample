@@ -1,0 +1,139 @@
+@charset 'UTF-8';
+
+.header {
+    text-align: center;
+}
+
+.col {
+    width: 1064px;
+    margin: 0 auto;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.example {
+    float: left;
+    width: 512px;
+    height: 512px;
+    margin: 10px;
+}
+.description {
+    float: left;
+    width: 512px;
+    height: 512px;
+    margin: 10px;
+}
+
+.tab_content {
+    padding: 0 !important; /* jQuery UI が自動付加するクラスに padding が指定されているため */
+}
+
+ul, ol {
+    padding-left: 1.5em;
+}
+.prettyprint {
+    overflow-x: scroll;
+}
+
+.imageLink {
+    text-decoration: none;
+}
+
+/**
+ * 方法1: position: absolute; で重ねる。メリット: それぞれリンクを張ったりすることができる。デメリット: 特になし？
+ */
+.imageCover1 {
+    position: relative;
+    width: 512px;
+    height: 512px;
+}
+.imageCover1 .baseImage {
+    width: 512px;
+    height: 512px;
+}
+.imageCover1 .coverImage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 256px;
+    height: 256px;
+}
+
+.imageCover2 {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
+}
+
+.imageCover2 .coverImage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 256px;
+    height: 256px;
+}
+
+.imageCover3 {
+    position: relative;
+}
+
+.imageCover3 .baseImage {
+    width: 512px;
+    height: 512px;
+}
+
+.imageCover3:after {
+    content: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png');
+    position: absolute;
+    right: -128px;
+    bottom: -128px;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.imageCover4 {
+    background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
+    width: 512px;
+    height: 512px;
+    position: relative;
+}
+
+.imageCover4:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 256px;
+    height: 256px;
+    background: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png') no-repeat scroll 0 0 transparent;
+    background-size: 256px 256px;
+}
+
+.imageCover5 {
+    width: 512px;
+    height: 512px;
+    background-image: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'), url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png');
+    background-size: 256px 256px, 512px 512px;
+    background-color: transparent;
+    background-position: 256px 256px, 0 0;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+}
+
+.imageCover6 {
+    width: 512px;
+    height: 512px;
+}
+
+.imageCover6 .canvasImage {
+    width: 512px;
+    height: 512px;
+}

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:og="http://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>@wada811's sample pages</title>
+<meta name="author" content="@wada811">
+<meta name="description" content="@wada811's sample pages">
+<link rel="canonical" href="http://wada811.github.com/sample/">
+<link rel="icon" sizes="16x16 32x32 48x48 128x128 256x256" href="http://wada811.github.com/sample/assets/img/favicon.ico">
+<!-- ogp -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="@wada811's sample pages">
+<meta property="og:url" content="http://wada811.github.com/sample/">
+<meta property="og:image" content="http://wada811.github.com/sample/assets/img/marunichigaiya_512.png">
+<meta property="og:title" content="@wada811's sample pages">
+<meta property="og:description" content="@wada811's sample pages">
+<!-- /ogp -->
+<!-- twitter-cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="http://wada811.github.com/sample/">
+<meta name="twitter:title" content="@wada811's sample pages">
+<meta name="twitter:description" content="@wada811's sample pages">
+<meta name="twitter:image" content="http://wada811.github.com/sample/assets/img/marunichigaiya_512.png">
+<meta name="twitter:site" content="@wada811">
+<meta name="twitter:creator" content="@wada811">
+<!-- /twitter-cards -->
+<!-- google+ -->
+<link rel="author" href="https://plus.google.com/118433275144367096417">
+<!-- /google+ -->
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,minimum-scale=0.25,maximum-scale=1.6">
+<!-- css -->
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/css/html5reset-1.6.1.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/jQueryUI/css/ui-lightness/jquery-ui-1.10.2.custom.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/assets/css/style.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="http://wada811.github.com/sample/libs/google-code-prettify/prettify.css">
+<link rel="stylesheet" href="./css/style.css">
+<!-- /css -->
+<!-- js -->
+<!--[if lt IE 9]>
+<script src="http://wada811.github.com/sample/libs/js/html5shiv.js"></script>
+<script src="http://wada811.github.com/sample/libs/js/IE9js/IE9.js"></script>
+<![endif]-->
+<!-- /js -->
+</head>
+<body onload="prettyPrint()">
+    <!-- page content -->
+    <div class="header">
+        <h1>How to cover an image with another image</h1>
+    </div>
+
+    <div class="col">
+        <div class="clearfix">
+            <div class="example">
+                <div class="imageCover1">
+                    <a href="https://twitter.com/kazoo04" target="_blank" class="imageLink">
+                        <img src="http://wada811.github.com/sample/imageCover/img/kazoo-background.png" alt="@kazoo04氏背景" class="baseImage">
+                    </a>
+                    <a href="https://twitter.com/wada811" target="_blank" class="imageLink">
+                        <img src="http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png" alt="丸に違い矢" class="coverImage">
+                    </a>
+                </div>
+            </div>
+            <div class="description">
+                <h2>方法1: position: absolute; で重ねる。</h2>
+                <ul>
+                    <li>メリット: それぞれリンクを張れる。</li>
+                    <li>デメリット: 特になし？</li>
+                </ul>
+                <div id="codeImageCover1">
+                    <ul>
+                        <li><a href="#codeImageCover1-1">HTML</a></li>
+                        <li><a href="#codeImageCover1-2">CSS</a></li>
+                    </ul>
+                    <div id="codeImageCover1-1" class="tab_content">
+                        <pre class="prettyprint">&lt;div class="imageCover1"&gt;
+    &lt;a href="https://twitter.com/kazoo04" target="_blank" class="imageLink"&gt;
+        &lt;img src="http://wada811.github.com/sample/imageCover/img/kazoo-background.png" alt="@kazoo04氏背景" class="baseImage"&gt;
+    &lt;/a&gt;
+    &lt;a href="https://twitter.com/wada811" target="_blank" class="imageLink"&gt;
+        &lt;img src="http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png" alt="丸に違い矢" class="coverImage"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                    <div id="codeImageCover1-2" class="tab_content">
+                        <pre class="prettyprint">.imageCover1 {
+    position: relative;
+    width: 512px;
+    height: 512px;
+}
+.imageCover1 .baseImage {
+    width: 512px;
+    height: 512px;
+}
+.imageCover1 .coverImage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 256px;
+    height: 256px;
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.imageCover1 -->
+        <div class="clearfix">
+            <div class="example">
+                <div class="imageCover2">
+                    <a href="https://twitter.com/wada811" target="_blank" class="imageLink">
+                        <img src="http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png" alt="丸に違い矢" class="coverImage">
+                    </a>
+                </div>
+            </div>
+            <div class="description">
+                <h2>方法2: 背景画像の上に img タグを載せる。</h2>
+                <ul>
+                    <li>メリット: 背景画像を右クリックで保存できないようにするくらい？</li>
+                    <li>デメリット: 特になし？</li>
+                </ul>
+                <div id="codeImageCover2">
+                    <ul>
+                        <li><a href="#codeImageCover2-1">HTML</a></li>
+                        <li><a href="#codeImageCover2-2">CSS</a></li>
+                    </ul>
+                    <div id="codeImageCover2-1" class="tab_content">
+                        <pre class="prettyprint">&lt;div class="imageCover2"&gt;
+    &lt;a href="https://twitter.com/wada811" target="_blank" class="imageLink"&gt;
+        &lt;img src="http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png" alt="丸に違い矢" class="coverImage"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                    <div id="codeImageCover2-2" class="tab_content">
+                        <pre class="prettyprint">.imageCover2 {
+    position: relative;
+    width: 512px;
+    height: 512px;
+    background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
+}
+.imageCover2 .coverImage {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 256px;
+    height: 256px;
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.imageCover2 -->
+        <div class="clearfix">
+            <div class="example">
+                <div class="imageCover3">
+                    <a href="https://twitter.com/kazoo04" target="_blank" class="imageLink">
+                        <img src="http://wada811.github.com/sample/imageCover/img/kazoo-background.png" alt="@kazoo04氏背景" class="baseImage">
+                    </a>
+                </div>
+            </div>
+            <div class="description">
+                <h2>方法3: 擬似要素 :after で content: url() を使う。</h2>
+                <ul>
+                    <li>メリット: カバー画像を右クリック保存できないようにする。</li>
+                    <li>デメリット: 特になし？</li>
+                </ul>
+                <div id="codeImageCover3">
+                    <ul>
+                        <li><a href="#codeImageCover3-1">HTML</a></li>
+                        <li><a href="#codeImageCover3-2">CSS</a></li>
+                    </ul>
+                    <div id="codeImageCover3-1" class="tab_content">
+                        <pre class="prettyprint">&lt;div class="imageCover3"&gt;
+    &lt;a href="https://twitter.com/kazoo04" target="_blank" class="imageLink"&gt;
+        &lt;img src="http://wada811.github.com/sample/imageCover/img/kazoo-background.png" alt="@kazoo04氏背景" class="baseImage"&gt;
+    &lt;/a&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                    <div id="codeImageCover3-2" class="tab_content">
+                        <pre class="prettyprint">.imageCover3 {
+    position: relative;
+}
+
+.imageCover3 .baseImage {
+    width: 512px;
+    height: 512px;
+}
+
+.imageCover3:after {
+    content: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png');
+    position: absolute;
+    right: -128px;
+    bottom: -128px;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.imageCover3 -->
+        <div class="clearfix">
+            <div class="example">
+                <div class="imageCover4"></div>
+            </div>
+            <div class="description">
+                <h2>方法4: 親要素と擬似要素 :after で background を使う。</h2>
+                <ul>
+                    <li>メリット: 両方の画像を右クリック保存できないようにする。</li>
+                    <li>デメリット: CSS3 の background-size を利用しているのでサポートしていないブラウザで使えない。</li>
+                </ul>
+                <div id="codeImageCover4">
+                    <ul>
+                        <li><a href="#codeImageCover4-1">HTML</a></li>
+                        <li><a href="#codeImageCover4-2">CSS</a></li>
+                    </ul>
+                    <div id="codeImageCover4-1" class="tab_content">
+                        <pre class="prettyprint">&lt;div class="imageCover4"&gt;&lt;/div&gt;</pre>
+                    </div>
+                    <div id="codeImageCover4-2" class="tab_content">
+                        <pre class="prettyprint">.imageCover4 {
+    background: url('.http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
+    width: 512px;
+    height: 512px;
+    position: relative;
+}
+
+.imageCover4:after {
+    content: "";
+    background: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png') no-repeat scroll 0 0 transparent;
+    background-size: 256px 256px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 256px;
+    height: 256px;
+}</pre>
+                </div>
+            </div>
+        </div>
+        <!-- /.imageCover4 -->
+        <div class="clearfix">
+            <div class="example">
+                <div class="imageCover5"></div>
+            </div>
+            <div class="description">
+                <h2>方法5: 背景画像を複数指定する</h2>
+                <ul>
+                    <li>メリット: 背景画像を右クリックで保存できないようにするくらい？</li>
+                    <li>デメリット: background-imageが複数指定できるのはCSS3からなのでサポートしていないブラウザで使えない。</li>
+                </ul>
+                <div id="codeImageCover5">
+                    <ul>
+                        <li><a href="#codeImageCover5-1">HTML</a></li>
+                        <li><a href="#codeImageCover5-2">CSS</a></li>
+                    </ul>
+                    <div id="codeImageCover5-1" class="tab_content">
+                        <pre class="prettyprint">&lt;div class="imageCover5"&gt;&lt;/div&gt;</pre>
+                    </div>
+                    <div id="codeImageCover5-2" class="tab_content">
+                        <pre class="prettyprint">.imageCover5 {
+    width: 512px;
+    height: 512px;
+    background-image: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'), url('.http://wada811.github.com/sample/imageCover/img/kazoo-background.png');
+    background-size: 256px 256px, 512px 512px;
+    background-color: transparent;
+    background-position: 256px 256px, 0 0;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.imageCover5 -->
+        <div class="clearfix">
+            <div class="example">
+                <div class="imageCover6">
+                    <canvas id="jsImageCoverCanvas" class="canvasImage"></canvas>
+                </div>
+            </div>
+            <div class="description">
+                <h2>方法6: Canvas で画像を読み込んで描画する。</h2>
+                <ul>
+                    <li>メリット: HTML5 Canvas というバズワードでお金が取れる？</li>
+                    <li>デメリット: Canvas をサポートしていないブラウザで使えない。</li>
+                </ul>
+                <div id="codeImageCover6">
+                    <ul>
+                        <li><a href="#codeImageCover6-1">HTML</a></li>
+                        <li><a href="#codeImageCover6-2">CSS</a></li>
+                        <li><a href="#codeImageCover6-3">JavaScript</a></li>
+                    </ul>
+                    <div id="codeImageCover6-1" class="tab_content">
+                        <pre class="prettyprint">&lt;div class="imageCover6"&gt;
+    &lt;canvas id="jsImageCoverCanvas" class="canvasImage"&gt;&lt;/canvas&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                    <div id="codeImageCover6-2" class="tab_content">
+                        <pre class="prettyprint">.imageCover6 {
+    width: 512px;
+    height: 512px;
+}
+
+.imageCover6 .canvasImage {
+    width: 512px;
+    height: 512px;
+}</pre>
+                    </div>
+                    <div id="codeImageCover6-3" class="tab_content">
+                        <pre class="prettyprint">function showImageCanvas(){
+    var fileArray = ['http://wada811.github.com/sample/imageCover/img/kazoo-background.png', 'http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'];
+    var xywh = [{x: 0, y: 0, w: 512, h: 512}, {x: 256, y: 256, w: 256, h: 256}];
+    var numFiles = fileArray.length;
+    var loadedCount = 0;
+    var imageObjectArray = [];
+    var canvas = document.getElementById('imageCoverCanvas');
+
+    var ctx = canvas.getContext('2d');
+
+    function loadImages(){
+        var imgObj = new Image();
+        imgObj.addEventListener('load',
+            function(){
+                loadedCount++;
+                imageObjectArray.push(imgObj);
+                if(numFiles === loadedCount){
+                    drawImage();
+                }else{
+                    loadImages();
+                }
+            },
+            false
+        );
+        imgObj.src = fileArray[imageObjectArray.length];
+    }
+    function drawImage(){
+        canvas.width = 512;
+        canvas.height = 512;
+        for(var i in imageObjectArray){
+            ctx.drawImage(imageObjectArray[i], xywh[i]['x'], xywh[i]['y'], xywh[i]['w'], xywh[i]['h']);
+            imageObjectArray[i] = null;
+        }
+    }
+    loadImages();
+}
+
+$(document).ready(function(){
+    showImageCanvas();
+});</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.imageCover6 -->
+    </div>
+
+    <!-- js -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="http://wada811.github.com/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
+
+    <script src="http://wada811.github.com/sample/libs/jQueryUI/js/jquery-ui-1.10.2.custom.js"></script>
+    <script src="http://wada811.github.com/sample/libs/TwitterBootstrap/js/bootstrap.min.js"></script>
+    <script src="http://wada811.github.com/sample/libs/google-code-prettify/prettify.js"></script>
+    <script src="http://wada811.github.com/sample/assets/js/script.js"></script>
+    <script src="./js/script.js"></script>
+    <!-- /js -->
+</body>
+</html>
