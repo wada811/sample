@@ -7,6 +7,9 @@ $(function(){
     $('#codeImageCover6').tabs();
 });
 
+$(document).ready(function(){
+    showImageCanvas();
+});
 
 function showImageCanvas(){
     var fileArray = ['http://wada811.github.com/sample/imageCover/img/kazoo-background.png', 'http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'];
@@ -45,8 +48,8 @@ function showImageCanvas(){
     loadImages();
 }
 
-// var dataURL = canvas.toDataURL('image/png');
-
-$(document).ready(function(){
-    showImageCanvas();
-});
+function replaceCanvasWithImage(){
+    var canvas = $('#jsImageCoverCanvas');
+    var dataURL = canvas.toDataURL('image/png');
+    canvas.remove().after('<img src="' + dataURL + '">');
+}
