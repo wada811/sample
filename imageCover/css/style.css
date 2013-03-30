@@ -38,7 +38,7 @@ ul, ol {
 }
 
 .prettyprint {
-    margin: 0;
+    margin: 0 !important; /* Twitter Bootstrap が pre.prettyprint に margin-bottom をつけるため */
     overflow-x: scroll;
 }
 
