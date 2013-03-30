@@ -51,7 +51,7 @@ function showImageCanvas(){
 function replaceCanvasWithImage(){
     var canvas = document.getElementById('jsImageCoverCanvas');
     var dataURL = canvas.toDataURL('image/png');
-    var imgTag = '<img src="' + dataURL + '" width="' + canvas.width + '" height="' + canvas.height + '" alt="kazoo氏背景合成画像">';
+    var imgTag = '<img src="' + dataURL + '" width="' + canvas.width + '" height="' + canvas.height + '" alt="かずー氏背景合成画像">';
     $('#jsImageCoverCanvas').after(imgTag).remove();
     $('#jsButtonEnableToSavaeImage').addClass('disabled');
 }
