@@ -12,7 +12,7 @@ $(document).ready(function(){
 });
 
 function showImageCanvas(){
-    var fileArray = ['http://wada811.github.com/sample/imageCover/img/kazoo-background.png', 'http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'];
+    var fileArray = ['http://wada811.github.com/sample/imageCover/img/kazoo04-background.png', 'http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'];
     var xywh = [{x: 0, y: 0, w: 512, h: 512}, {x: 256, y: 256, w: 256, h: 256}];
     var numFiles = fileArray.length;
     var loadedCount = 0;
