@@ -21,6 +21,7 @@
     height: 512px;
     margin: 10px;
 }
+
 .description {
     float: left;
     width: 512px;
@@ -35,6 +36,7 @@
 ul, ol {
     padding-left: 1.5em;
 }
+
 .prettyprint {
     overflow-x: scroll;
 }
@@ -43,18 +45,17 @@ ul, ol {
     text-decoration: none;
 }
 
-/**
- * 方法1: position: absolute; で重ねる。メリット: それぞれリンクを張ったりすることができる。デメリット: 特になし？
- */
 .imageCover1 {
     position: relative;
     width: 512px;
     height: 512px;
 }
+
 .imageCover1 .baseImage {
     width: 512px;
     height: 512px;
 }
+
 .imageCover1 .coverImage {
     position: absolute;
     right: 0;
@@ -100,10 +101,10 @@ ul, ol {
 }
 
 .imageCover4 {
-    background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
+    position: relative;
     width: 512px;
     height: 512px;
-    position: relative;
+    background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
 }
 
 .imageCover4:after {
@@ -122,10 +123,10 @@ ul, ol {
     height: 512px;
     background-image: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'), url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png');
     background-size: 256px 256px, 512px 512px;
-    background-color: transparent;
     background-position: 256px 256px, 0 0;
-    background-attachment: scroll, scroll;
     background-repeat: no-repeat;
+    background-attachment: scroll, scroll;
+    background-color: transparent;
 }
 
 .imageCover6 {

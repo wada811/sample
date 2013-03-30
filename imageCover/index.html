@@ -90,10 +90,12 @@
     width: 512px;
     height: 512px;
 }
+
 .imageCover1 .baseImage {
     width: 512px;
     height: 512px;
 }
+
 .imageCover1 .coverImage {
     position: absolute;
     right: 0;
@@ -139,6 +141,7 @@
     height: 512px;
     background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
 }
+
 .imageCover2 .coverImage {
     position: absolute;
     right: 0;
@@ -223,21 +226,21 @@
                     </div>
                     <div id="codeImageCover4-2" class="tab_content">
                         <pre class="prettyprint">.imageCover4 {
-    background: url('.http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
+    position: relative;
     width: 512px;
     height: 512px;
-    position: relative;
+    background: url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png') no-repeat scroll 0 0 transparent;
 }
 
 .imageCover4:after {
     content: "";
-    background: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png') no-repeat scroll 0 0 transparent;
-    background-size: 256px 256px;
     position: absolute;
     right: 0;
     bottom: 0;
     width: 256px;
     height: 256px;
+    background: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png') no-repeat scroll 0 0 transparent;
+    background-size: 256px 256px;
 }</pre>
                 </div>
             </div>
@@ -265,12 +268,12 @@
                         <pre class="prettyprint">.imageCover5 {
     width: 512px;
     height: 512px;
-    background-image: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'), url('.http://wada811.github.com/sample/imageCover/img/kazoo-background.png');
+    background-image: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'), url('http://wada811.github.com/sample/imageCover/img/kazoo-background.png');
     background-size: 256px 256px, 512px 512px;
-    background-color: transparent;
     background-position: 256px 256px, 0 0;
-    background-attachment: scroll, scroll;
     background-repeat: no-repeat;
+    background-attachment: scroll, scroll;
+    background-color: transparent;
 }</pre>
                     </div>
                 </div>
@@ -318,7 +321,7 @@
     var numFiles = fileArray.length;
     var loadedCount = 0;
     var imageObjectArray = [];
-    var canvas = document.getElementById('imageCoverCanvas');
+    var canvas = document.getElementById('jsImageCoverCanvas');
 
     var ctx = canvas.getContext('2d');
 
