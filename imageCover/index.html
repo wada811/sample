@@ -298,7 +298,7 @@
                         <li><a href="#codeImageCover6-2">CSS</a></li>
                         <li><a href="#codeImageCover6-3">JavaScript</a></li>
                         <li>
-                            <button class="btn btn-primary" onclick="replaceCanvasWithImage()">画像を保存できるようにする</button>
+                            <button id="jsButtonEnableToSavaeImage" class="btn btn-primary" onclick="replaceCanvasWithImage()">画像を保存できるようにする</button>
                         </li>
                     </ul>
                     <div id="codeImageCover6-1" class="tab_content">
@@ -313,7 +313,11 @@
 }</pre>
                     </div>
                     <div id="codeImageCover6-3" class="tab_content">
-                        <pre class="prettyprint">function showImageCanvas(){
+                        <pre class="prettyprint">$(document).ready(function(){
+    showImageCanvas();
+});
+
+function showImageCanvas(){
     var fileArray = ['http://wada811.github.com/sample/imageCover/img/kazoo-background.png', 'http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'];
     var xywh = [{x: 0, y: 0, w: 512, h: 512}, {x: 256, y: 256, w: 256, h: 256}];
     var numFiles = fileArray.length;
@@ -348,11 +352,7 @@
         }
     }
     loadImages();
-}
-
-$(document).ready(function(){
-    showImageCanvas();
-});</pre>
+}</pre>
                     </div>
                 </div>
             </div>
