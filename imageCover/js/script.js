@@ -51,5 +51,5 @@ function showImageCanvas(){
 function replaceCanvasWithImage(){
     var canvas = document.getElementById('jsImageCoverCanvas');
     var dataURL = canvas.toDataURL('image/png');
-    canvas.remove().after('<img src="' + dataURL + '">');
+    $('#jsImageCoverCanvas').remove().after('<img src="' + dataURL + '">');
 }
