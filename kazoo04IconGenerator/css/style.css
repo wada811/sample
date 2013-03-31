@@ -23,10 +23,10 @@ body {
     float: left;
     width: 512px;
     height: 512px;
-    margin: 25px 25px 25px 0;
 }
 
 .form {
     float: left;
+    margin-left: 25px;
     text-align: center;
 }

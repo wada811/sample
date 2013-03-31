@@ -38,3 +38,18 @@ function showImageCanvas(){
     }
     loadImages();
 }
+
+function upload(fileName){
+    $('#uploadedImage').attr('src', fileName);
+    // $('#jsKazoo04Icon').after(imgTag);
+}
+
+function generateKazoo04Icon(){
+    var canvas = document.getElementById('jsKazoo04Icon');
+    var ctx = canvas.getContext('2d');
+
+    var dataURL = canvas.toDataURL('image/png');
+    var imgTag = '<img src="' + dataURL + '" width="' + canvas.width + '" height="' + canvas.height + '" alt="かずー氏背景合成画像">';
+    $('#jsKazoo04Icon').after(imgTag).remove();
+    $('#jsButtonEnableToSavaeImage').addClass('disabled');
+}
