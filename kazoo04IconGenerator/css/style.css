@@ -3,7 +3,7 @@
 body {
     min-height: 100%;
     background-image: url('http://wada811.github.com/sample/kazoo04IconGenerator/img/kazoo04-background.png');
-    background-size: cover;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
