@@ -1,9 +1,30 @@
 @charset 'UTF-8';
 
 body {
-    min-height: 100%;
     background-image: url('http://wada811.github.com/sample/kazoo04IconGenerator/img/kazoo04-background.png');
-    background-size: 100% 100%;
+    background-position: right bottom;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.main {
+    width: 1024px;
+    margin: 50px auto;
+}
+
+.content {
+    margin: 25px;
+}
+
+.canvas {
+    float: left;
+    width: 512px;
+    height: 512px;
+}
+
+.form {
+    float: left;
+    width: 360px;
+    margin: 0 auto;
 }
