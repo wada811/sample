@@ -11,6 +11,8 @@ body {
 .main {
     width: 1024px;
     margin: 50px auto;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
 .content {
