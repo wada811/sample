@@ -30,3 +30,10 @@ body {
     margin-left: 25px;
     text-align: center;
 }
+
+.upload {
+    display: block;
+    margin: .5em 0;
+    height: 1.2em;
+    line-height: 1.2;
+}

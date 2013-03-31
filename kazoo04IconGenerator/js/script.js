@@ -40,7 +40,7 @@ function showImageCanvas(){
 }
 
 function upload(fileName){
-    $('#uploadedImage').attr('src', fileName);
+    $('#uploadedImage').attr('src', fileName).attr('width', '512').attr('height', '512');
     // $('#jsKazoo04Icon').after(imgTag);
 }
 

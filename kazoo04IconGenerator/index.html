@@ -48,10 +48,10 @@
         <div class="content clearfix">
             <div class="canvas">
                 <canvas id="jsKazoo04Icon"></canvas>
-                <img src="" alt="" width="0" height="0">
+                <img id="uploadedImage" src="" alt="" width="0" height="0">
             </div>
             <div class="form">
-                <input type="file" id="upload" onchange="upload(this.value)" />
+                <input type="file" id="upload" class="upload" onchange="upload(this.value)" />
                 <button class="btn btn-primary" onclick="generateKazoo04Icon">Generate kazoo04 Icon</button>
             </div>
         </div>
