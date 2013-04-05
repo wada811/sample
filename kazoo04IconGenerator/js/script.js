@@ -42,32 +42,33 @@ function showImageCanvas(){
 
 function addDropListener(){
     var jsUploadedImage = document.getElementById('jsUploadedImage');
-    jsUploadedImage.addEventListener('drop', function(e){
-        // イベントを親要素に伝えない
-        e.stopPropagation();
-        // 画像ビューアとして開かないようにする
-        e.preventDefault();
-        // ドロップされたファイルを取得
-        var file = e.dataTransfer.files[0];
-        if(file.type !== 'image/png'){
-            alert('PNG画像のみを受け付けています。');
-            return;
-        }
-        // HTML5 File API を利用する
-        var fileReader = new FileReader();
-        // ファイルを Data URI Scheme として読み込む
-        fileReader.readAsDataURL(file);
-        // ファイル読み込み失敗時
-        fileReader.onerror = function(e){
-            alert('画像の読み込みに失敗しました。');
-        };
-        // ファイル読み込み完了時
-        fileReader.onload = function(e){
-            $('#jsUploadedImage').attr('src', 'data:' + file.type + ';base64,' + e.target.result);
-        };
-    }, true);
+    jsUploadedImage.addEventListener('drop', dropListener, true);
 }
 
+function dropListener(e){
+    // 画像ビューアとして開かないようにする
+    e.preventDefault();
+    // イベントを親要素に伝えない
+    e.stopPropagation();
+    // ドロップされたファイルを取得
+    var file = e.dataTransfer.files[0];
+    if(file.type !== 'image/png'){
+        alert('PNG画像のみを受け付けています。');
+        return;
+    }
+    // HTML5 File API を利用する
+    var fileReader = new FileReader();
+    // ファイルを Data URI Scheme として読み込む
+    fileReader.readAsDataURL(file);
+    // ファイル読み込み失敗時
+    fileReader.onerror = function(e){
+        alert('画像の読み込みに失敗しました。');
+    };
+    // ファイル読み込み完了時
+    fileReader.onload = function(e){
+        $('#jsUploadedImage').attr('src', 'data:' + file.type + ';base64,' + e.target.result);
+    };
+}
 
 
 function upload(fileName){
