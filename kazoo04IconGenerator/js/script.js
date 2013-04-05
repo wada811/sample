@@ -1,6 +1,7 @@
 $(document).ready(function(){
     showImageCanvas();
-    addDropListener();
+    addDropListener('jsUploadedImage');
+    addDropListener('jsDropBox');
 });
 
 function showImageCanvas(){
@@ -40,8 +41,8 @@ function showImageCanvas(){
     loadImages();
 }
 
-function addDropListener(){
-    var jsUploadedImage = document.getElementById('jsUploadedImage');
+function addDropListener(id){
+    var jsUploadedImage = document.getElementById(id);
     jsUploadedImage.addEventListener('drop', dropListener, true);
 }
 
