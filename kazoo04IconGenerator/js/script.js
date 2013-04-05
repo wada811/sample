@@ -1,7 +1,6 @@
 $(document).ready(function(){
     showImageCanvas();
-    addDropListener('jsUploadedImage');
-    addDropListener('jsDropBox');
+    addDropListener('jsKazoo04Icon');
 });
 
 function showImageCanvas(){
@@ -42,15 +41,13 @@ function showImageCanvas(){
 }
 
 function addDropListener(id){
-    var jsUploadedImage = document.getElementById(id);
-    jsUploadedImage.addEventListener('drop', dropListener, true);
+    var jsDropBox = document.getElementById(id);
+    jsDropBox.addEventListener('drop', dropListener, true);
 }
 
 function dropListener(e){
     // 画像ビューアとして開かないようにする
     e.preventDefault();
-    // イベントを親要素に伝えない
-    e.stopPropagation();
     // ドロップされたファイルを取得
     var file = e.dataTransfer.files[0];
     if(file.type !== 'image/png'){
@@ -73,7 +70,19 @@ function dropListener(e){
 
 
 function upload(fileName){
-    $('#jsUploadedImage').attr('src', fileName)
+    var files = document.getElementById('upload').files;
+    var file = files[0];
+    var fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    // ファイル読み込み失敗時
+    fileReader.onerror = function(e){
+        alert('画像の読み込みに失敗しました。');
+    };
+    // ファイル読み込み完了時
+    fileReader.onload = function(e){
+        $('#jsUploadedImage').attr('src', 'data:' + file.type + ';base64,' + e.target.result);
+    };
+    $('#jsUploadedImage').attr('src', fileName);
     // $('#jsKazoo04Icon').after(imgTag);
 }
 
