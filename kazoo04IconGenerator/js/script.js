@@ -41,7 +41,7 @@ function showImageCanvas(){
 }
 
 function addDropListener(){
-    var jsUploadedImage = docment.getElementById('jsUploadedImage');
+    var jsUploadedImage = document.getElementById('jsUploadedImage');
     jsUploadedImage.addEventListener('drop', function(e){
         // イベントを親要素に伝えない
         e.stopPropagation();
