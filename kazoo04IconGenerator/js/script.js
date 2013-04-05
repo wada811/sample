@@ -1,6 +1,6 @@
 $(document).ready(function(){
     showImageCanvas();
-    addDropListener('#jsUploadedImage');
+    addDropListener();
 });
 
 function showImageCanvas(){
@@ -40,10 +40,9 @@ function showImageCanvas(){
     loadImages();
 }
 
-function addDropListener(selector){
-    $.event.props.push('dataTransfer');
-    $(selector).on({
-        drop: function(e){
+function addDropListener(){
+    var jsUploadedImage = docment.getElementById('jsUploadedImage');
+    jsUploadedImage.addEventListener('drop', function(e){
             // イベントを親要素に伝えない
             e.stopPropagation();
             // 画像ビューアとして開かないようにする
@@ -67,7 +66,7 @@ function addDropListener(selector){
                 $('#jsUploadedImage').attr('src', 'data:' + file.type + ';base64,' + e.target.result);
             };
         }
-    });
+    }, true);
 }
 
 
