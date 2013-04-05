@@ -41,6 +41,7 @@ function showImageCanvas(){
 }
 
 function addDropListener(selector){
+    $.event.props.push('dataTransfer');
     $(selector).on({
         drop: function(e){
             // イベントを親要素に伝えない
