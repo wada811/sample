@@ -21,6 +21,15 @@ body {
 
 .canvas {
     float: left;
+    position: relative;
+    width: 512px;
+    height: 512px;
+}
+
+.canvas img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 512px;
     height: 512px;
 }

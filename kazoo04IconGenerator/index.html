@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:og="http://ogp.me/ns#">
+<html lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -46,11 +46,12 @@
 <body>
     <div class="main">
         <div class="content clearfix">
-            <div class="canvas">
+            <div id="jsDropBox" class="canvas">
                 <canvas id="jsKazoo04Icon"></canvas>
-                <img id="uploadedImage" src="" alt="" width="0" height="0">
+                <img id="jsUploadedImage" src="" alt="かずー氏アイコン">
             </div>
             <div class="form">
+                <h1>かずー氏アイコンジェネレータ</h1>
                 <input type="file" id="upload" class="upload" onchange="upload(this.value)" />
                 <button class="btn btn-primary" onclick="generateKazoo04Icon">Generate kazoo04 Icon</button>
             </div>
