@@ -1,6 +1,6 @@
 $(document).ready(function(){
     showImageCanvas();
-    addDropListener('#jsDropBox');
+    addDropListener('#jsUploadedImage');
 });
 
 function showImageCanvas(){
