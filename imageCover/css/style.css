@@ -70,7 +70,7 @@ ul, ol {
     position: relative;
     width: 512px;
     height: 512px;
-    background: url('http://wada811.github.com/sample/imageCover/img/kazoo04-background.png') no-repeat scroll 0 0 transparent;
+    background: url('http://wada811.github.io/sample/imageCover/img/kazoo04-background.png') no-repeat scroll 0 0 transparent;
 }
 
 .imageCover2 .coverImage {
@@ -91,7 +91,7 @@ ul, ol {
 }
 
 .imageCover3:after {
-    content: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png');
+    content: url('http://wada811.github.io/sample/assets/img/marunichigaiya_512_trans.png');
     position: absolute;
     right: -128px;
     bottom: -128px;
@@ -106,7 +106,7 @@ ul, ol {
     position: relative;
     width: 512px;
     height: 512px;
-    background: url('http://wada811.github.com/sample/imageCover/img/kazoo04-background.png') no-repeat scroll 0 0 transparent;
+    background: url('http://wada811.github.io/sample/imageCover/img/kazoo04-background.png') no-repeat scroll 0 0 transparent;
 }
 
 .imageCover4:after {
@@ -116,14 +116,14 @@ ul, ol {
     bottom: 0;
     width: 256px;
     height: 256px;
-    background: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png') no-repeat scroll 0 0 transparent;
+    background: url('http://wada811.github.io/sample/assets/img/marunichigaiya_512_trans.png') no-repeat scroll 0 0 transparent;
     background-size: 256px 256px;
 }
 
 .imageCover5 {
     width: 512px;
     height: 512px;
-    background-image: url('http://wada811.github.com/sample/assets/img/marunichigaiya_512_trans.png'), url('http://wada811.github.com/sample/imageCover/img/kazoo04-background.png');
+    background-image: url('http://wada811.github.io/sample/assets/img/marunichigaiya_512_trans.png'), url('http://wada811.github.io/sample/imageCover/img/kazoo04-background.png');
     background-size: 256px 256px, 512px 512px;
     background-position: 256px 256px, 0 0;
     background-repeat: no-repeat;
