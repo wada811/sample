@@ -42,28 +42,26 @@
 <script type="text/javascript" src="http://wada811.github.com/sample/libs/js/IE9js/IE9.js"></script>
 <![endif]-->
 <!-- /js -->
-
-        <style>
-            img,canvas,video {
-                background-color:black;
-            }
-            button {
-                border:1px solid #eeeeee;
-                width:100px;
-                height:30px;
-                color:white;
-            }
-            #capture {
-                background-color:#008800;
-            }
-            #start {
-                background-color:#000088;
-            }
-            #stop {
-                background-color:#880000;
-            }
-
-        </style>
+<style>
+    img,canvas,video {
+        background-color:black;
+    }
+    button {
+        border:1px solid #eeeeee;
+        width:100px;
+        height:30px;
+        color:white;
+    }
+    #capture {
+        background-color:#008800;
+    }
+    #start {
+        background-color:#000088;
+    }
+    #stop {
+        background-color:#880000;
+    }
+</style>
 </head>
 <body>
     <div id="camera">
@@ -71,11 +69,17 @@
         <img src="" width="640" height="480" >
         <canvas style="display:none;" width="640" height="480"></canvas>
     </div>
-        <div id="wrapper">
-            <button id="capture">capture</button>
-            <button id="start">start</button>
-            <button id="stop">stop</button>
-        </div>
+    <div id="wrapper">
+        <button id="capture">capture</button>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+    </div>
+
+    <!-- js -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script type="text/javascript" src="http://wada811.github.com/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://wada811.github.com/sample/assets/js/script.js"></script>
+    <!-- /js -->
 
     <script>
         var video = document.querySelector('video');
@@ -106,7 +110,6 @@
             alert("未対応ブラウザです。");
         }
 
-
         window.URL = window.URL || window.webkitURL;
         navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
@@ -117,24 +120,22 @@
 
         //ボタンイベント
         $("#capture").click(function() {
+            console.log('capture');
             snapshot();
         });
         $("#start").click(function() {
+            console.log('start');
             localMediaStream.start();
         });
         $("#stop").click(function() {
+            console.log('stop');
             localMediaStream.stop();
         });
         $("video").click(function() {
+            console.log('video');
             snapshot();
         });
 
     </script>
-
-    <!-- js -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script type="text/javascript" src="http://wada811.github.com/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
-    <script type="text/javascript" src="http://wada811.github.com/sample/assets/js/script.js"></script>
-    <!-- /js -->
 </body>
 </html>
