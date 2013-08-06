@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:og="http://ogp.me/ns#">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>HTML5 Camera</title>
+<meta name="author" content="@wada811">
+<meta name="description" content="HTML5 で Camera">
+<link rel="canonical" href="http://wada811.github.com/sample/HTML5Camera/index.html">
+<link rel="icon" sizes="16x16 32x32 48x48 128x128 256x256" href="http://wada811.github.com/sample/assets/img/favicon.ico">
+<!-- ogp -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HTML5 Camera">
+<meta property="og:url" content="http://wada811.github.com/sample/HTML5Camera/index.html">
+<meta property="og:image" content="http://wada811.github.com/sample/assets/img/jQuery.png">
+<meta property="og:title" content="HTML5 Camera">
+<meta property="og:description" content="HTML5 で Camera">
+<!-- /ogp -->
+<!-- twitter-cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:url" content="http://wada811.github.com/sample/HTML5Camera/index.html">
+<meta name="twitter:title" content="HTML5 Camera">
+<meta name="twitter:description" content="HTML5 で Camera">
+<meta name="twitter:image" content="http://wada811.github.com/sample/assets/img/jQuery.png">
+<meta name="twitter:site" content="@wada811">
+<meta name="twitter:creator" content="@wada811">
+<!-- /twitter-cards -->
+<!-- google+ -->
+<link rel="author" href="https://plus.google.com/118433275144367096417">
+<!-- /google+ -->
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,minimum-scale=0.25,maximum-scale=1.6">
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="http://wada811.github.com/sample/libs/css/html5reset-1.6.1.css">
+<link rel="stylesheet" type="text/css" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="http://wada811.github.com/sample/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap-responsive.min.css">
+<!-- /css -->
+<!-- js -->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://wada811.github.com/sample/libs/js/html5shiv.js"></script>
+<script type="text/javascript" src="http://wada811.github.com/sample/libs/js/IE9js/IE9.js"></script>
+<![endif]-->
+<!-- /js -->
+
+        <style>
+            img,canvas,video {
+                background-color:black;
+            }
+            button {
+                border:1px solid #eeeeee;
+                width:100px;
+                height:30px;
+                color:white;
+            }
+            #capture {
+                background-color:#008800;
+            }
+            #start {
+                background-color:#000088;
+            }
+            #stop {
+                background-color:#880000;
+            }
+
+        </style>
+</head>
+<body>
+    <div id="camera">
+        <video autoplay width="640" height="480"></video>
+        <img src="" width="640" height="480" >
+        <canvas style="display:none;" width="640" height="480"></canvas>
+    </div>
+        <div id="wrapper">
+            <button id="capture">capture</button>
+            <button id="start">start</button>
+            <button id="stop">stop</button>
+        </div>
+
+    <script>
+        var video = document.querySelector('video');
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+        var localMediaStream = null;
+
+        //カメラ使えるかチェック
+        var hasGetUserMedia = function() {
+            return !!(navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+        }
+        //エラー
+        var onFailSoHard = function(e) {
+            console.log('エラー!', e);
+        };
+
+        //カメラ画像キャプチャ
+        var snapshot = function() {
+            if (localMediaStream) {
+                ctx.drawImage(video, 0, 0);
+                document.querySelector('img').src = canvas.toDataURL('image/webp');
+            }
+        }
+
+        if (hasGetUserMedia()) {
+            console.log("カメラ OK");
+        } else {
+            alert("未対応ブラウザです。");
+        }
+
+
+        window.URL = window.URL || window.webkitURL;
+        navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+        navigator.getUserMedia({video: true}, function(stream) {
+          video.src = window.URL.createObjectURL(stream);
+          localMediaStream = stream;
+        }, onFailSoHard);
+
+        //ボタンイベント
+        $("#capture").click(function() {
+            snapshot();
+        });
+        $("#start").click(function() {
+            localMediaStream.start();
+        });
+        $("#stop").click(function() {
+            localMediaStream.stop();
+        });
+        $("video").click(function() {
+            snapshot();
+        });
+
+    </script>
+
+    <!-- js -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script type="text/javascript" src="http://wada811.github.com/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://wada811.github.com/sample/assets/js/script.js"></script>
+    <!-- /js -->
+</body>
+</html>
