@@ -45,6 +45,7 @@
 <style>
     img,canvas,video {
         background-color:black;
+        vertical-align: bottom;
     }
     button {
         border:1px solid #eeeeee;
@@ -113,10 +114,13 @@
         window.URL = window.URL || window.webkitURL;
         navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-        navigator.getUserMedia({video: true}, function(stream) {
-          video.src = window.URL.createObjectURL(stream);
-          localMediaStream = stream;
-        }, onFailSoHard);
+        var start = function(){
+            navigator.getUserMedia({video: true}, function(stream) {
+                video.src = window.URL.createObjectURL(stream);
+                localMediaStream = stream;
+            }, onFailSoHard);
+        }
+        start();
 
         //ボタンイベント
         $("#capture").click(function() {
@@ -125,7 +129,7 @@
         });
         $("#start").click(function() {
             console.log('start');
-            localMediaStream.start();
+            start();
         });
         $("#stop").click(function() {
             console.log('stop');
@@ -135,7 +139,16 @@
             console.log('video');
             snapshot();
         });
+        $("img").click(function() {
+            console.log('img');
+            $(this).addClass = 'grayscale';
+        });
 
     </script>
+    <style>
+    .grayscale {
+      +filter: grayscale(1);
+    }
+    </style>
 </body>
 </html>
