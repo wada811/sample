@@ -141,13 +141,17 @@
         });
         $("img").click(function() {
             console.log('img');
-            $(this).addClass = 'grayscale';
+            $(this).addClass('grayscale');
         });
 
     </script>
     <style>
     .grayscale {
-      +filter: grayscale(1);
+        -webkit-filter: grayscale(1);
+        -moz-filter: grayscale(1);
+        -o-filter: grayscale(1);
+        -ms-filter: grayscale(1);
+        filter: grayscale(1);
     }
     </style>
 </body>
