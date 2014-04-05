@@ -4,7 +4,7 @@ $(document).ready(function(){
 });
 
 function showImageCanvas(){
-    var fileArray = ['http://wada811.github.com/sample/kazoo04IconGenerator/img/kazoo04-background.png'];
+    var fileArray = [location.href.replace('index.html', 'img/kazoo04-background.png')];
     var xywh = [{x: 0, y: 0, w: 512, h: 512}];
     var numFiles = fileArray.length;
     var loadedCount = 0;
@@ -42,36 +42,36 @@ function showImageCanvas(){
 
 function addDropListener(id){
     var jsDropBox = document.getElementById(id);
-    jsDropBox.addEventListener('drop', dropListener, true);
+    jsDropBox.addEventListener('dragover', dragOverHandler, false);
+    jsDropBox.addEventListener('drop', dropListener, false);
 }
 
-function dropListener(e){
+function dragOverHandler(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+}
+
+function dropListener(event){
     // 画像ビューアとして開かないようにする
-    e.preventDefault();
+    event.stopPropagation();
+    event.preventDefault();
     // ドロップされたファイルを取得
-    var file = e.dataTransfer.files[0];
+    var file = event.dataTransfer.files[0];
     if(file.type !== 'image/png'){
         alert('PNG画像のみを受け付けています。');
         return;
     }
-    // HTML5 File API を利用する
-    var fileReader = new FileReader();
-    // ファイルを Data URI Scheme として読み込む
-    fileReader.readAsDataURL(file);
-    // ファイル読み込み失敗時
-    fileReader.onerror = function(e){
-        alert('画像の読み込みに失敗しました。');
-    };
-    // ファイル読み込み完了時
-    fileReader.onload = function(e){
-        $('#jsUploadedImage').attr('src', 'data:' + file.type + ';base64,' + e.target.result);
-    };
+    handleFile(file);
 }
 
 
 function upload(fileName){
-    var files = document.getElementById('upload').files;
+    var files = document.getElementById('jsUpload').files;
     var file = files[0];
+    handleFile(file);
+}
+
+function handleFile(file){
     var fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     // ファイル読み込み失敗時
@@ -79,11 +79,16 @@ function upload(fileName){
         alert('画像の読み込みに失敗しました。');
     };
     // ファイル読み込み完了時
-    fileReader.onload = function(e){
-        $('#jsUploadedImage').attr('src', 'data:' + file.type + ';base64,' + e.target.result);
+    fileReader.onload = function(event){
+        var image = new Image();
+        image.src = event.target.result;
+        image.onload = function(){
+            var canvas = document.getElementById('jsKazoo04Icon');
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(image, 0, 0);
+            $('#jsButtonEnableToSavaeImage').removeClass('disabled');
+        };
     };
-    $('#jsUploadedImage').attr('src', fileName);
-    // $('#jsKazoo04Icon').after(imgTag);
 }
 
 function generateKazoo04Icon(){
@@ -94,4 +99,55 @@ function generateKazoo04Icon(){
     var imgTag = '<img src="' + dataURL + '" width="' + canvas.width + '" height="' + canvas.height + '" alt="かずー氏背景合成画像">';
     $('#jsKazoo04Icon').after(imgTag).remove();
     $('#jsButtonEnableToSavaeImage').addClass('disabled');
+
+    var blob = Base64toBlob(dataURL);
+    window.URL = window.URL || window.webkitURL;
+    $('#jsDownload').attr("href", window.URL.createObjectURL(blob));
+    $('#jsDownload').removeClass('disabled');
+    // saveBlob(blob,"kazoo04.png");
+}
+
+
+function Base64toBlob(_base64){
+    var i;
+    var tmp = _base64.split(',');
+    var data = atob(tmp[1]);
+    var mime = tmp[0].split(':')[1].split(';')[0];
+
+    //var buff = new ArrayBuffer(data.length);
+    //var arr = new Uint8Array(buff);
+    var arr = new Uint8Array(data.length);
+    for (i = 0; i < data.length; i++) {arr[i] = data.charCodeAt(i);}
+    var blob = new Blob([arr], { type: mime });
+    return blob;
+}
+
+
+function ArraytoBlob(_mime, _array){
+    // ArrayBufferやUint8Arrayなら入れなおす工数がなくなります
+    var arr = new Uint8Array(_array.length);
+    for (var i = 0; i < _array.length; i++) {arr[i] = _array[i];}
+
+    var blob = new Blob([arr], { type: _mime });
+    return blob;
+}
+
+
+function saveBlob(_blob, _file){
+    if(window.navigator.msSaveBlob){ // IEの場合
+        window.navigator.msSaveBlob(_blob, _file);
+    }else{
+        var url = (window.URL || window.webkitURL);
+        var data = url.createObjectURL(_blob);
+        var e = document.createEvent("MouseEvents");
+        e.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+        var a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+        a.href = data;
+        a.download = _file;
+        a.dispatchEvent(e);
+    }
+}
+
+function downloaded(){
+    $('#jsDownload').addClass('disabled');
 }

@@ -6,22 +6,22 @@
 <title>@kazoo04 Icon Generator</title>
 <meta name="author" content="@wada811">
 <meta name="description" content="クライアントサイドだけでできるかずー氏アイコンジェネレータ。">
-<link rel="canonical" href="http://wada811.github.com/sample/kazoo04IconGenerator/index.html">
-<link rel="icon" sizes="16x16 32x32 48x48 128x128 256x256" href="http://wada811.github.com/sample/assets/img/favicon.ico">
+<link rel="canonical" href="//wada811.github.io/sample/kazoo04IconGenerator/index.html">
+<link rel="icon" sizes="16x16 32x32 48x48 128x128 256x256" href="//wada811.github.io/sample/assets/img/favicon.ico">
 <!-- ogp -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="@wada811's sample pages">
-<meta property="og:url" content="http://wada811.github.com/sample/kazoo04IconGenerator/index.html">
-<meta property="og:image" content="http://wada811.github.com/sample/kazoo04IconGenerator/img/kazoo04-background.png">
+<meta property="og:url" content="//wada811.github.io/sample/kazoo04IconGenerator/index.html">
+<meta property="og:image" content="//wada811.github.io/sample/kazoo04IconGenerator/img/kazoo04-background.png">
 <meta property="og:title" content="@kazoo04 Icon Generator">
 <meta property="og:description" content="クライアントサイドだけでできるかずー氏アイコンジェネレータ。">
 <!-- /ogp -->
 <!-- twitter-cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:url" content="http://wada811.github.com/sample/kazoo04IconGenerator/index.html">
+<meta name="twitter:url" content="//wada811.github.io/sample/kazoo04IconGenerator/index.html">
 <meta name="twitter:title" content="@kazoo04 Icon Generator">
 <meta name="twitter:description" content="クライアントサイドだけでできるかずー氏アイコンジェネレータ。">
-<meta name="twitter:image" content="http://wada811.github.com/sample/kazoo04IconGenerator/img/kazoo04-background.png">
+<meta name="twitter:image" content="//wada811.github.io/sample/kazoo04IconGenerator/img/kazoo04-background.png">
 <meta name="twitter:site" content="@wada811">
 <meta name="twitter:creator" content="@wada811">
 <!-- /twitter-cards -->
@@ -30,40 +30,65 @@
 <!-- /google+ -->
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,minimum-scale=0.25,maximum-scale=1.6">
 <!-- css -->
-<link rel="stylesheet" href="http://wada811.github.com/sample/libs/css/html5reset-1.6.1.css">
-<link rel="stylesheet" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://wada811.github.com/sample/assets/css/style.css">
-<link rel="stylesheet" href="http://wada811.github.com/sample/libs/TwitterBootstrap/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="//wada811.github.io/sample/libs/css/html5reset-1.6.1.css">
+<link rel="stylesheet" href="//wada811.github.io/sample/libs/TwitterBootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="//wada811.github.io/sample/assets/css/style.css">
+<link rel="stylesheet" href="//wada811.github.io/sample/libs/TwitterBootstrap/css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="./css/style.css">
 <!-- /css -->
 <!-- js -->
 <!--[if lt IE 9]>
-<script src="http://wada811.github.com/sample/libs/js/html5shiv.js"></script>
-<script src="http://wada811.github.com/sample/libs/js/IE9js/IE9.js"></script>
+<script src="//wada811.github.io/sample/libs/js/html5shiv.js"></script>
+<script src="//wada811.github.io/sample/libs/js/IE9js/IE9.js"></script>
 <![endif]-->
 <!-- /js -->
 </head>
 <body>
     <div class="main">
         <div class="content clearfix">
-            <div id="jsDropBox" class="canvas">
+            <div class="canvas">
                 <canvas id="jsKazoo04Icon"></canvas>
-                <img id="jsUploadedImage" src="" alt="かずー氏アイコン">
             </div>
             <div class="form">
-                <h1>かずー氏アイコンジェネレータ</h1>
-                <input type="file" id="upload" class="upload" onchange="upload(this.value)" />
-                <button class="btn btn-primary" onclick="generateKazoo04Icon">Generate kazoo04 Icon</button>
+                <h1 class="title">クライアントサイドだけでできる<br>かずー氏アイコンジェネレータ</h1>
+                <h2 class="sub-title">SETP 1. 画像をアップロードしよう！</h2>
+                <input type="file" id="jsUpload" class="upload" onchange="upload(this.value)" accept="image/*" />
+
+                <h2 class="sub-title">SETP 2. かずー氏アイコンを生成しよう！</h2>
+                <button id="jsButtonEnableToSavaeImage" class="btn btn-primary disabled" onclick="generateKazoo04Icon()">Generate kazoo04 Icon</button>
+
+                <h2 class="sub-title">SETP 3. かずー氏アイコンをダウンロードしよう！</h2>
+                <a href="#" id="jsDownload" class="btn btn-primary disabled" target="_blank" download="kazoo04.png" onclick="downloaded();">Download kazoo04 Icon</a>
+
+                <h2 class="sub-title">Special Thanks</h2>
+                <a href="https://twitter.com/kazoo04" target="_blank">かずー氏 (@kazoo04)</a>
+
+                <h2 class="sub-title">ほしい物リスト</h2>
+                <a href="http://www.amazon.co.jp/registry/wishlist/2DQEW1IW63DGA">15円から50万円まで幅広い価格帯でご用意しております。</a>
             </div>
         </div>
     </div><!-- /.main -->
 
+    <!-- <div>
+        <a href="http://noodles-mtb.hatenablog.com/entry/20110903/1315036154" target="_blank">sinatra + html5_canvas + jquery 画像ドラッグドロップでファイル保存 - 麺処　まつば</a>
+        <a href="http://andante0727.blog81.fc2.com/blog-entry-244.html" target="_blank">Andante JavaScript、input type=&quot;file&quot;のチェック</a>
+        <a href="http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1154912836" target="_blank">JavaScriptの質問です。 input type=&quot;file&quot;で選択した画像をそのページ内に表示す... - Yahoo!知恵袋</a>
+        <a href="http://kazooshi.moosan.org/" target="_blank">かずー氏アイコンジェネレーター</a>
+        <a href="http://paulownia.hatenablog.com/entry/20110327/1301240288" target="_blank">Drag and DropとFile APIを試す - NullPointer&apos;s Blog</a>
+        <a href="http://dresscording.com/blog/html5/drag_drop.html" target="_blank">HTML5 Drag and dropを実装してみよう | Dress Cording</a>
+        <a href="http://stackoverflow.com/questions/12954529/jquery-html5-file-drag-and-drop" target="_blank">jQuery HTML5 file drag and drop - Stack Overflow</a>
+        <a href="http://d.hatena.ne.jp/favril/20100506/1273143063" target="_blank">html5の File API を使って、アップロード無しで画像プレビュー - 超自己満足プログラミング</a>
+        <a href="http://www.webopixel.net/javascript/664.html" target="_blank">HTML5 の File API でローカルファイルを扱ってみる | webOpixel</a>
+        <a href="http://blog.asial.co.jp/1079" target="_blank">【HTML5】File APIを使って、投稿された画像を即時表示する方法【小ネタ】 : アシアルブログ</a>
+        <a href="https://developer.mozilla.org/ja/docs/HTML/Canvas/Tutorial/Using_images" target="_blank">画像を使う - HTML | MDN</a>
+    </div> -->
+
     <!-- js -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="http://wada811.github.com/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="//wada811.github.io/sample/libs/js/jquery-1.9.1.min.js"><\/script>')</script>
 
-    <script src="http://wada811.github.com/sample/libs/TwitterBootstrap/js/bootstrap.min.js"></script>
-    <script src="http://wada811.github.com/sample/assets/js/script.js"></script>
+    <script src="//wada811.github.io/sample/libs/TwitterBootstrap/js/bootstrap.min.js"></script>
+    <script src="//wada811.github.io/sample/assets/js/script.js"></script>
     <script src="./js/script.js"></script>
     <!-- /js -->
 </body>

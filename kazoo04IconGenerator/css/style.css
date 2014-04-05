@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 body {
-    background-image: url('http://wada811.github.com/sample/kazoo04IconGenerator/img/kazoo04-background.png');
+    background-image: url('../img/kazoo04-background.png');
     background-position: right bottom;
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,9 +40,18 @@ body {
     text-align: center;
 }
 
-.upload {
+.title {
+    font-size: 28px;
+}
+
+.sub-title {
+    font-size: 18px;
+    text-align: left;
+}
+
+input[type="file"].upload {
     display: block;
-    margin: .5em 0;
     height: 1.2em;
-    line-height: 1.2;
+    line-height: 1;
+    font-size: 100%;
 }
