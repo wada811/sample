@@ -42,10 +42,10 @@ function showImageCanvas(){
 
 function addDropListener(id){
     var jsDropBox = document.getElementById(id);
-    document.addEventListener('dragover', dropNone, true);
-    document.addEventListener('drop', dropNone, true);
-    jsDropBox.addEventListener('dragover', dropCopy, true);
-    jsDropBox.addEventListener('drop', drop, true);
+    document.addEventListener('dragover', dropNone);
+    document.addEventListener('drop', dropNone);
+    jsDropBox.addEventListener('dragover', dropCopy);
+    jsDropBox.addEventListener('drop', drop);
 }
 
 function dropNone(event) {
