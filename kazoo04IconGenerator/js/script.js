@@ -42,19 +42,26 @@ function showImageCanvas(){
 
 function addDropListener(id){
     var jsDropBox = document.getElementById(id);
-    jsDropBox.addEventListener('dragover', dragOverHandler, false);
-    jsDropBox.addEventListener('drop', dropListener, false);
+    document.addEventListener('dragover', dropNone, true);
+    document.addEventListener('drop', dropNone, true);
+    jsDropBox.addEventListener('dragover', dropCopy, true);
+    jsDropBox.addEventListener('drop', drop, true);
 }
 
-function dragOverHandler(event) {
+function dropNone(event) {
+    event.stopPropagation();
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'none';
+}
+function dropCopy(event) {
+    event.stopPropagation();
     event.preventDefault();
     event.dataTransfer.dropEffect = 'copy';
 }
 
-function dropListener(event){
+function drop(event){
     // 画像ビューアとして開かないようにする
-    event.stopPropagation();
-    event.preventDefault();
+    dropCopy(event);
     // ドロップされたファイルを取得
     var file = event.dataTransfer.files[0];
     if(file.type !== 'image/png'){
@@ -62,6 +69,7 @@ function dropListener(event){
         return;
     }
     handleFile(file);
+    $('#jsUpload').attr('disabled', 'disabled');
 }
 
 
