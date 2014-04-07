@@ -26,3 +26,48 @@ kbd,
     display: table;
     clear: both;
 }
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/**
+ * 見た目非表示: 検索エンジンなどからコンテンツを隠さない
+ */
+.visuallyhidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/**
+ * 画像置換: テキストを隠す
+ */
+.image-replace {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
